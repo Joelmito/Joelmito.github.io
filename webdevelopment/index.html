@@ -9,17 +9,16 @@
   <meta property="og:description" content="Brazilian clothing brand for versatile, comfortable, and sustainable style." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#111111" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Inject hero background as CSS variable for easy swap */
+    #home.hero::before{ background-image: url('https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=2400&auto=format&fit=crop'); }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header transparent" role="banner">
     <div class="container rail">
       <div class="left">
@@ -27,7 +26,6 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>
         </button>
         <a class="brand" href="#home" aria-label="BlankPage home" style="display:flex;align-items:center;gap:10px">
-          <!-- Logo: folded-corner page -->
           <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 3h7.5L19 8.5V21H6V3z"/>
             <path d="M13 3v6h6"/>
@@ -66,7 +64,7 @@
     <nav aria-label="Site">
       <a href="#home">Home <span class="muted">Start here</span></a>
       <a href="#collections">Collections <span class="muted">Street & Minimal</span></a>
-      <a href="#about">About <span class="muted">Our story</span></a>
+      <a href="about.html">About <span class="muted">Our story</span></a>
       <a href="#services">Services <span class="muted">Where we operate</span></a>
       <a href="#features">Features <span class="muted">What makes us different</span></a>
       <a href="#reflection">Reflection <span class="muted">Blank → Masterpiece</span></a>
@@ -74,8 +72,8 @@
     </nav>
   </aside>
 
-  <!-- Hero -->
-  <section id="home" class="hero" style="--hero:url('https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=2400&auto=format&fit=crop');">
+  <!-- Hero / Home -->
+  <section id="home" class="hero">
     <div class="container hero-inner">
       <span class="kicker">From Blank Page → Masterpiece</span>
       <h2>Even Mona Lisa was once a sketch.</h2>
@@ -87,7 +85,6 @@
     </div>
   </section>
 
-  <!-- Narrative strip -->
   <div class="narrative">
     <div class="container strip">
       <span>Blank</span><span class="dot"></span><span>Sketch</span><span class="dot"></span><span>Draft</span><span class="dot"></span><span>Masterpiece</span>
@@ -117,29 +114,6 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container about-grid">
-      <div>
-        <h3>About BlankPage</h3>
-        <p class="muted">
-          Blank Page is a Brazilian clothing brand built on the idea of limitless self‑expression. Just like a blank
-          sheet invites creativity, our pieces are designed as versatile canvases that let people define their own style.
-          We combine clean design, quality fabrics, and a sustainable mindset to create clothing that is simple,
-          adaptable, and authentic — empowering each person to write their own story through what they wear.
-        </p>
-        <div class="stats" role="list" aria-label="Core Values">
-          <div class="stat" role="listitem"><b>Expression</b><span class="muted">Personal style first</span></div>
-          <div class="stat" role="listitem"><b>Versatility</b><span class="muted">One piece, many looks</span></div>
-          <div class="stat" role="listitem"><b>Comfort</b><span class="muted">Quality & fit</span></div>
-        </div>
-      </div>
-      <div class="card" style="padding:18px">
-        <img alt="Clean, adaptable outfit detail" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop"/>
-      </div>
-    </div>
-  </section>
-
   <!-- Services / Locations -->
   <section id="services">
     <div class="container">
@@ -151,24 +125,6 @@
           <li><strong>Online Store:</strong> Nationwide delivery across Brazil</li>
         </ul>
       </div>
-
-      <h3 style="margin-top:28px">Team</h3>
-      <div class="team">
-        <div class="card person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
-            <strong>Alec Chang</strong>
-            <div class="muted">Co‑founder</div>
-          </div>
-        </div>
-        <div class="card person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
-            <strong>Leonardo Galvan</strong> <span class="muted">(aka Galvanmito)</span>
-            <div class="muted">Co‑founder</div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -177,21 +133,21 @@
     <div class="container">
       <h3>What makes BlankPage different</h3>
       <div class="features">
-        <div class="card feature">
+        <div class="card feature" style="padding:20px">
           <h4>Versatile Design</h4>
-          <p>Every piece acts like a canvas — clean, adaptable, and easy to style for different moods or occasions. From streetwear to casual, Blank Page clothing lets people write their own look.</p>
+          <p class="prose">Every piece acts like a canvas — clean, adaptable, and easy to style for different moods or occasions. From streetwear to casual, Blank Page clothing lets people write their own look.</p>
         </div>
-        <div class="card feature">
+        <div class="card feature" style="padding:20px">
           <h4>Quality & Comfort</h4>
-          <p>We focus on durable fabrics, precise cuts, and timeless silhouettes. The result: clothing that feels as good as it looks, built to last beyond just one season.</p>
+          <p class="prose">We focus on durable fabrics, precise cuts, and timeless silhouettes. The result: clothing that feels as good as it looks, built to last beyond just one season.</p>
         </div>
-        <div class="card feature">
+        <div class="card feature" style="padding:20px">
           <h4>Authentically Brazilian</h4>
-          <p>Rooted in local creativity, Blank Page merges global inspiration with Brazilian edge. It’s fashion that feels modern while celebrating cultural identity.</p>
+          <p class="prose">Rooted in local creativity, Blank Page merges global inspiration with Brazilian edge. It’s fashion that feels modern while celebrating cultural identity.</p>
         </div>
-        <div class="card feature">
+        <div class="card feature" style="padding:20px">
           <h4>Sustainable Mindset</h4>
-          <p>Less waste, more intention. We embrace minimal collections, responsible sourcing, and long‑lasting design to make fashion better for people and planet.</p>
+          <p class="prose">Less waste, more intention. We embrace minimal collections, responsible sourcing, and long‑lasting design to make fashion better for people and planet.</p>
         </div>
       </div>
     </div>
