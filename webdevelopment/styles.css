@@ -1,11 +1,11 @@
-/* Brand palette and type */
+
 :root{
-  --bg:#F5F6F8;   /* Secondary */
-  --text:#111111; /* Primary */
+  --bg:#F5F6F8;        /* Secondary */
+  --text:#111111;      /* Primary */
   --muted:#4b4f55;
-  --line:#CCCCCC; /* Accent as lines */
-  --elev:#ffffff; /* cards */
-  --brand:#111111;
+  --line:#CCCCCC;      /* Accent as lines */
+  --elev:#ffffff;      /* cards */
+  --brand:#111111;     /* brand/cta */
   --radius:16px;
   --shadow: 0 10px 30px rgba(0,0,0,.08);
 }
@@ -27,7 +27,7 @@ img{max-width:100%;display:block}
 .icon-btn svg, .menu-btn svg{inline-size:22px;block-size:22px}
 .menu-btn:hover,.icon-btn:hover{background:rgba(17,17,17,.06)}
 
-/* Transparent over hero */
+/* Transparent over hero (home only) */
 .site-header.transparent{background:linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,0));color:#ffffff;border-bottom-color:rgba(255,255,255,.18)}
 .site-header.transparent .menu-btn:hover,.site-header.transparent .icon-btn:hover{background:rgba(255,255,255,.14)}
 
@@ -36,7 +36,6 @@ img{max-width:100%;display:block}
 
 /* SIDE DRAWER */
 .drawer-overlay{position:fixed;inset:0;z-index:89;opacity:0;pointer-events:none;transition:opacity .25s ease;
-  /* translucent with blur so content stays visible */
   background:rgba(245,246,248,.55);
   backdrop-filter:saturate(120%) blur(10px);
   -webkit-backdrop-filter:saturate(120%) blur(10px);
@@ -62,22 +61,6 @@ img{max-width:100%;display:block}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.5);color:#fff}
 .btn.primary{background:#111;border-color:#111}
 
-/* Narrative band: Blank → Sketch → Draft → Masterpiece */
-.narrative{border-block:1px solid var(--line);background:#fafbfc}
-.narrative .strip{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;padding:18px 0;color:#222;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.dot{inline-size:6px;block-size:6px;border-radius:999px;background:#111;opacity:.3}
-
-/* About / Services layout and cards */
-section{padding:72px 0}
-.card{background:var(--elev);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-section h3{font-family:'Playfair Display', serif;font-size:clamp(22px,2.4vw,32px);margin:0 0 16px}
-.muted{color:var(--muted)}
-
-.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-.stat{padding:16px;border-radius:12px;background:#fff;border:1px solid var(--line);text-align:center}
-.stat b{font-size:20px;display:block}
-
 /* Collections */
 .collections{padding:72px 0}
 .grid-collections{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
@@ -87,6 +70,17 @@ section h3{font-family:'Playfair Display', serif;font-size:clamp(22px,2.4vw,32px
 .collection .label{position:absolute;inset:auto 16px 16px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .chip{backdrop-filter:saturate(120%) blur(6px);background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:600}
 .more{border-radius:999px;border:1px solid #111;padding:8px 12px;background:#111;color:#fff}
+
+/* Narrative band: Blank → Sketch → Draft → Masterpiece */
+.narrative{border-block:1px solid var(--line);background:#fafbfc}
+.narrative .strip{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;padding:18px 0;color:#222;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.dot{inline-size:6px;block-size:6px;border-radius:999px;background:#111;opacity:.3}
+
+/* Cards/Sections */
+section{padding:72px 0}
+.card{background:var(--elev);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+section h3{font-family:'Playfair Display', serif;font-size:clamp(22px,2.4vw,32px);margin:0 0 16px}
+.muted{color:var(--muted)}
 
 /* Team */
 .team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -100,11 +94,9 @@ section h3{font-family:'Playfair Display', serif;font-size:clamp(22px,2.4vw,32px
 /* Footer */
 footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted)}
 
-/* Responsive */
 @media (max-width:900px){
   .grid-collections{grid-template-columns:1fr}
   .team{grid-template-columns:1fr}
   .hero{min-height:68svh}
   .hero-inner{padding:96px 0 40px}
-  .about-grid{grid-template-columns:1fr}
 }
