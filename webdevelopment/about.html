@@ -1,58 +1,130 @@
-<!--
-  Name: Alec Chang
-  Date: 10/10/2025
-  Page: About Template
-  Description: About section on blankpage website
--->
-
-<!-- This is the main HTML5 document declaration -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Character encoding for proper text rendering -->
-  <meta charset="utf-8">
-
-  <!-- Makes the layout mobile-friendly and responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Title of the page (shows in browser tab) -->
-  <title>About</title>
-
-  <!-- Link to external CSS for styling (optional, can update later) -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — BlankPage</title>
+  <meta name="description" content="Our story: from Blank → Sketch → Draft → Masterpiece. Designed in São Paulo with quality, versatility, and a sustainable mindset." />
+  <meta property="og:title" content="About — BlankPage" />
+  <meta property="og:description" content="From Blank Page to Masterpiece: the brand story and values behind BlankPage." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Solid header on about page (no hero) */
+    .site-header{position:sticky;top:0;background:#fff;color:var(--text);border-bottom:1px solid var(--line)}
+  </style>
 </head>
-
 <body>
-  <!-- Header section: will later contain logo and navigation -->
-  <header>
-    <h1>Blank Page Clothing</h1>
-    <!-- Future nav menu will go here -->
+  <header class="site-header solid" role="banner">
+    <div class="container rail">
+      <div class="left">
+        <button class="menu-btn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>
+        </button>
+        <a class="brand" href="index.html#home" aria-label="BlankPage home" style="display:flex;align-items:center;gap:10px">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h7.5L19 8.5V21H6V3z"/>
+            <path d="M13 3v6h6"/>
+          </svg>
+          <div class="wordmark">blankpage</div>
+        </a>
+      </div>
+      <div class="right">
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.98 10.39l4.41 4.41 1.41-1.41-4.41-4.41A6 6 0 0 0 10 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Login">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A1 1 0 0 0 9 18h9v-2H9.42l.93-1.67h6.72a1 1 0 0 0 .9-.55l3.1-6.2A1 1 0 0 0 20.2 6H7.42l-.7-2zM7 20a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2z"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- Main content area for testing -->
-  <main>
-    <h2>about us</h2>
-    <p>Purpose: give people a fresh start every time they get dressed. Just like a blank page holds
-infinite possibilities, our clothing invites self-expression, creativity, and confidence. The
-brand is about letting each person “write their own story” through what they wear.
-    <br><br>
-Values: personal expression, versatility, quality & comfort, Brazilian identity and
-sustainable mindset
-    <br><br>
-Mission: to provide high-quality, versatile clothing that empowers individuals to express
-themselves freely and confidently.
-    <br><br>
-    About business: Blank Page is a Brazilian clothing brand built on the idea of limitless self-
-expression. Just like a blank sheet invites creativity, our pieces are designed as versatile
-canvases that let people define their own style. We combine clean design, quality fabrics,
-and a sustainable mindset to create clothing that is simple, adaptable, and authentic —
-empowering each person to write their own story through what they wear
-</p>
-  </main>
+  <!-- Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <header>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7.5L19 8.5V21H6V3z"/><path d="M13 3v6h6"/></svg>
+          <strong>blankpage</strong>
+        </div>
+        <button class="icon-btn" id="drawer-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.4 4.9 4.9 6.4 10.5 12l-5.6 5.6 1.5 1.5L12 13.5l5.6 5.6 1.5-1.5L13.5 12l5.6-5.6-1.5-1.5L12 10.5 6.4 4.9z"/></svg>
+        </button>
+      </div>
+    </header>
+    <nav aria-label="Site">
+      <a href="index.html#home">Home <span class="muted">Start here</span></a>
+      <a href="index.html#collections">Collections <span class="muted">Street & Minimal</span></a>
+      <a href="about.html">About <span class="muted">Our story</span></a>
+      <a href="index.html#services">Services <span class="muted">Where we operate</span></a>
+      <a href="index.html#features">Features <span class="muted">What makes us different</span></a>
+      <a href="index.html#reflection">Reflection <span class="muted">Blank → Masterpiece</span></a>
+      <a href="index.html#store">Shop <span class="muted">Coming soon</span></a>
+    </nav>
+  </aside>
 
-  <!-- Footer section: includes author name and current date -->
+  <section class="page-hero" style="padding:56px 0 24px;border-bottom:1px solid var(--line);background:#fff">
+    <div class="container">
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.6vw,48px);margin:0 0 8px">About BlankPage</h1>
+      <p class="muted" style="margin:0">From a blank page, a sketch. From a sketch, a masterpiece. This is our way of making clothes.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="display:grid;grid-template-columns:1.1fr .9fr;gap:24px">
+      <div>
+        <div class="prose">
+          <p>BlankPage began with a simple belief: even iconic things start simple. Like the Mona Lisa that was once nothing but a blank canvas, every outfit begins as an idea — refined over time into something personal and timeless.</p>
+          <p>We design <strong>versatile pieces</strong> that invite expression. Clean silhouettes, quality fabrics, and careful construction let our customers evolve a look across seasons instead of chasing one.</p>
+          <p>Rooted in São Paulo’s creative energy, we build locally with a <strong>sustainable mindset</strong> — aiming for fewer, better pieces made to last. Every collection is a new chapter, but the story is always yours.</p>
+        </div>
+        <div class="stats" role="list" aria-label="Core Values" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px">
+          <div class="stat" role="listitem" style="padding:16px;border-radius:12px;background:#fafafa;border:1px solid var(--line);text-align:center"><b>Expression</b><span class="muted">Your style first</span></div>
+          <div class="stat" role="listitem" style="padding:16px;border-radius:12px;background:#fafafa;border:1px solid var(--line);text-align:center"><b>Versatility</b><span class="muted">One piece, many looks</span></div>
+          <div class="stat" role="listitem" style="padding:16px;border-radius:12px;background:#fafafa;border:1px solid var(--line);text-align:center"><b>Comfort</b><span class="muted">Quality & fit</span></div>
+        </div>
+      </div>
+      <div class="card" style="padding:18px">
+        <img alt="Atelier desk: paper sketch evolving into garment" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop"/>
+      </div>
+    </div>
+  </section>
+
+  <div class="narrative">
+    <div class="container strip">
+      <span>Blank</span><span class="dot"></span><span>Sketch</span><span class="dot"></span><span>Draft</span><span class="dot"></span><span>Masterpiece</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2 style="font-family:'Playfair Display',serif;margin:0 0 8px">Where we operate</h2>
+      <div class="card" style="padding:18px">
+        <ul class="prose" style="margin:0;padding-left:18px">
+          <li><strong>Headquarters:</strong> São Paulo, SP (main office & design studio)</li>
+          <li><strong>Distribution Center:</strong> São Paulo metro area (logistics & shipping)</li>
+          <li><strong>Online Store:</strong> Nationwide delivery across Brazil</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>Created by Alec Chang</p>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+      <div>© <span id="year"></span> BlankPage. All rights reserved.</div>
+      <div class="muted">Your style, your story.</div>
+    </div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
