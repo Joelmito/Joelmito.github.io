@@ -1,54 +1,111 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Inter:wght@300;400;500&display=swap');
-
+/* Brand palette and type */
 :root{
-  /* Palette inspired by luxury fashion sites */
-  --bg: #f7f6f3;          /* warm off-white */
-  --text: #0b0b0b;        /* near-black */
-  --muted: #6f6f6f;       /* muted gray for secondary text */
-  --accent: #a88c5d;      /* champagne/gold accent */
-  --accent-2: #b6a38a;    /* softer gold for subtle states */
+  --bg:#F5F6F8;   /* Secondary */
+  --text:#111111; /* Primary */
+  --muted:#4b4f55;
+  --line:#CCCCCC; /* Accent as lines */
+  --elev:#ffffff; /* cards */
+  --brand:#111111;
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Source Sans 3', system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.container{max-width:1180px;margin-inline:auto;padding-inline:24px}
+
+/* HEADER: only menu + logo on left, search/login/cart on right */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;border-bottom:1px solid transparent}
+.site-header .rail{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.left, .right{display:flex;align-items:center;gap:14px}
+.wordmark{font-family:'Playfair Display', serif;font-weight:700;letter-spacing:.01em;text-transform:none;font-size:20px}
+.logo-icon{inline-size:32px;block-size:32px}
+.menu-btn,.icon-btn{display:inline-grid;place-items:center;inline-size:40px;block-size:40px;border-radius:999px;border:1px solid transparent;background:transparent;color:inherit}
+.icon-btn svg, .menu-btn svg{inline-size:22px;block-size:22px}
+.menu-btn:hover,.icon-btn:hover{background:rgba(17,17,17,.06)}
+
+/* Transparent over hero */
+.site-header.transparent{background:linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,0));color:#ffffff;border-bottom-color:rgba(255,255,255,.18)}
+.site-header.transparent .menu-btn:hover,.site-header.transparent .icon-btn:hover{background:rgba(255,255,255,.14)}
+
+/* Solid after scroll */
+.site-header.solid{background:#ffffff;color:#0b0b0c;border-bottom-color:var(--line);box-shadow:0 6px 16px rgba(0,0,0,.06)}
+
+/* SIDE DRAWER */
+.drawer-overlay{position:fixed;inset:0;z-index:89;opacity:0;pointer-events:none;transition:opacity .25s ease;
+  /* translucent with blur so content stays visible */
+  background:rgba(245,246,248,.55);
+  backdrop-filter:saturate(120%) blur(10px);
+  -webkit-backdrop-filter:saturate(120%) blur(10px);
+}
+.drawer{position:fixed;inset:0 auto 0 0;width:min(360px,86vw);background:#fff;border-right:1px solid var(--line);z-index:90;transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column}
+.drawer header{padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer nav{padding:8px 10px}
+.drawer a{display:flex;align-items:center;justify-content:space-between;padding:14px 12px;border-radius:12px;font-weight:600}
+.drawer a:hover{background:#f6f7f9}
+.drawer .muted{font-weight:500;color:var(--muted)}
+.drawer.open{transform:none}
+.drawer-overlay.open{opacity:1;pointer-events:auto}
+
+/* HERO */
+.hero{position:relative;min-height:82svh;display:grid;align-items:end;color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;filter:saturate(105%);z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55) 30%, rgba(0,0,0,.65) 100%);z-index:-1}
+.hero-inner{padding:124px 0 56px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;opacity:.9}
+.hero h2{font-family:'Playfair Display', serif;font-size:clamp(28px,5vw,64px);line-height:1.04;margin:10px 0 12px}
+.hero p{max-width:60ch;opacity:.92}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn.primary{background:#111;border-color:#111}
+
+/* Narrative band: Blank → Sketch → Draft → Masterpiece */
+.narrative{border-block:1px solid var(--line);background:#fafbfc}
+.narrative .strip{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;padding:18px 0;color:#222;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.dot{inline-size:6px;block-size:6px;border-radius:999px;background:#111;opacity:.3}
+
+/* About / Services layout and cards */
+section{padding:72px 0}
+.card{background:var(--elev);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+section h3{font-family:'Playfair Display', serif;font-size:clamp(22px,2.4vw,32px);margin:0 0 16px}
+.muted{color:var(--muted)}
+
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.stat{padding:16px;border-radius:12px;background:#fff;border:1px solid var(--line);text-align:center}
+.stat b{font-size:20px;display:block}
+
+/* Collections */
+.collections{padding:72px 0}
+.grid-collections{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+.collection{position:relative;overflow:hidden;border-radius:18px;background:#f4f5f7;border:1px solid var(--line)}
+.collection img{aspect-ratio: 16/9;object-fit:cover;width:100%;transition:transform .5s ease}
+.collection:hover img{transform:scale(1.05)}
+.collection .label{position:absolute;inset:auto 16px 16px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.chip{backdrop-filter:saturate(120%) blur(6px);background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:600}
+.more{border-radius:999px;border:1px solid #111;padding:8px 12px;background:#111;color:#fff}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.person{padding:18px;display:flex;gap:14px;align-items:center}
+.avatar{inline-size:48px;block-size:48px;border-radius:12px;background:#111}
+
+/* Prose */
+.prose{line-height:1.7;color:#222}
+.prose p{margin:0 0 12px}
+
+/* Footer */
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted)}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid-collections{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr}
+  .hero{min-height:68svh}
+  .hero-inner{padding:96px 0 40px}
+  .about-grid{grid-template-columns:1fr}
 }
 
-/* Base typography & colors */
-html { background: var(--bg); }
-body {
-  color: var(--text);
-  background: var(--bg);
-  font-family: "Inter","Helvetica Neue",Arial,ui-sans-serif,system-ui;
-  line-height: 1.6;
-}
-
-/* Headings: elegant serif display */
-h1, h2, h3 {
-  font-family: "Bodoni Moda","Didot","Bodoni MT",serif;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  font-weight: 600;
-}
-
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-
-/* Body copy */
-p { color: var(--text); }
-
-/* Links: subtle luxury accent */
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-a:hover, a:focus {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Secondary text areas like footer */
-footer p { color: var(--muted); }
-
-/* Luxe selection color */
-::selection {
-  background: var(--accent-2);
-  color: var(--bg);
-}
