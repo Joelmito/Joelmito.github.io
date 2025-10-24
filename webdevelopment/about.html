@@ -58,12 +58,43 @@
   <div class="drawer-overlay"></div>
 
   <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <h1>About BlankPage</h1>
-        <p>From a blank page, a sketch. From a sketch, a masterpiece. This is our way of making clothes.</p>
+  <!-- HERO (About) -->
+  <section class="hero hero--about" style="--hero:url('assets/about-hero.jpg');">
+    <div class="container hero-inner">
+      <span class="kicker">São Paulo • SP</span>
+      <h1>About BlankPage</h1>
+      <p>From a blank page to a masterpiece — our way of making clothes.</p>
+      <div class="actions">
+        <a class="btn primary" href="index.html#collections">Explore collections</a>
+        <a class="btn" href="reflection.html">Read reflections</a>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Brand Video -->
+  <section id="about-video">
+    <div class="container">
+      <h2 class="h-playfair" style="margin-bottom:12px;">The Blank → Sketch → Masterpiece Journey</h2>
+      <p class="muted" style="margin:0 0 16px;">A short look at our process, people, and places.</p>
+
+      <!-- Option A: Local MP4 file -->
+      <figure class="video-wrap card">
+        <video
+          class="video-el"
+          controls
+          preload="metadata"
+          playsinline
+          poster="assets/about-video-poster.jpg">
+          <source src="assets/about-video.mp4" type="video/mp4" />
+          <!-- Optional captions -->
+          <!-- <track kind="captions" src="assets/captions.vtt" srclang="en" label="English"> -->
+          Your browser does not support the video tag.
+        </video>
+      </figure>
+    </div>
+  </section>
+</main>
+
 
     <section>
       <div class="container">

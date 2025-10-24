@@ -85,4 +85,28 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted)}
 .skip-link{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:8px;z-index:999}
 
+/* About hero variant (reuses .hero base) */
+.hero--about{min-height:56svh}
+@media (min-width:900px){ .hero--about{min-height:64svh} }
+
+/* Video frame: responsive and polished */
+.video-wrap{
+  padding:0;
+  overflow:hidden;
+}
+.video-el,
+.video-embed{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Use aspect-ratio for embeds and consistent framing */
+.video-wrap { aspect-ratio: 16 / 9; background:#000 }
+.video-embed { width:100%; height:100%; border:0 }
+.video-el { width:100%; height:100%; object-fit:cover; background:#000 }
+
+/* Small helper for muted text used above */
+.muted{color:#4b4f55}
+
 
