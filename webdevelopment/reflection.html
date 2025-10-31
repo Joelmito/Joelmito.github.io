@@ -4,58 +4,67 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reflection — BlankPage</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon (SVG + fallbacks in /assets) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" ry="10" fill="%23F5F6F8"/><path d="M18 10h22l8 8v36H18z" fill="none" stroke="%23111111" stroke-width="4" stroke-linejoin="round"/><path d="M40 10v8h8" fill="none" stroke="%23111111" stroke-width="4" stroke-linejoin="round"/></svg>'>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+  <meta name="theme-color" content="#F5F6F8">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <input type="checkbox" id="nav-toggle" aria-hidden="true" />
-
   <header class="site-header" role="banner">
-    <div class="container rail">
-      <div class="left">
-        <label class="menu-toggle-label" for="nav-toggle" aria-label="Open menu">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>
-        </label>
-        <a class="brand" href="index.html#home" aria-label="BlankPage home" style="display:flex;align-items:center;gap:10px">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7.5L19 8.5V21H6V3z"/><path d="M13 3v6h6"/></svg>
-          <div class="wordmark">blankpage</div>
-        </a>
-      </div>
-      <div class="right">
-        <span class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4a6 6 0 1 0 3.98 10.39l4.41 4.41 1.41-1.41-4.41-4.41A6 6 0 0 0 10 4z"/></svg></span>
-        <span class="icon-btn" aria-label="Login"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/></svg></span>
-        <span class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A1 1 0 0 0 9 18h9v-2z"/></svg></span>
+    <div class="container nav-rail">
+      <a class="brand" href="index.html#home" aria-label="BlankPage home">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h7.5L19 8.5V21H6V3z"/><path d="M13 3v6h6"/>
+        </svg>
+        <span class="wordmark">blankpage</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li class="has-dropdown">
+            <a href="index.html#collections" class="nav-parent" aria-haspopup="true" aria-expanded="false">
+              Collections <span class="caret" aria-hidden="true">▾</span>
+            </a>
+            <ul class="dropdown" aria-label="Collections submenu">
+              <li><a href="index.html#collections">All Collections</a></li>
+              <li><a href="index.html#collections">Street</a></li>
+              <li><a href="index.html#collections">Casual Minimal</a></li>
+              <li><a href="index.html#collections">Atelier Edition</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="reflection.html" aria-current="page">Reflection</a></li>
+          <li><a href="index.html#store">Shop</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.98 10.39l4.41 4.41 1.41-1.41-4.41-4.41A6 6 0 0 0 10 4z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Login">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A1 1 0 0 0 9 18h9v-2z"/></svg>
+        </button>
       </div>
     </div>
   </header>
-
-  <aside class="drawer" aria-hidden="true">
-    <header>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <div style="display:flex;align-items:center;gap:10px">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7.5L19 8.5V21H6V3z"/><path d="M13 3v6h6"/></svg>
-          <strong>blankpage</strong>
-        </div>
-        <label class="icon-btn" for="nav-toggle" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.4 4.9 4.9 6.4 10.5 12l-5.6 5.6 1.5 1.5L12 13.5l5.6 5.6 1.5-1.5L13.5 12l5.6-5.6-1.5-1.5L12 10.5 6.4 4.9z"/></svg>
-        </label>
-      </div>
-    </header>
-    <nav aria-label="Site">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#collections">Collections</a>
-      <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#features">Features</a>
-      <a href="reflection.html">Reflection</a>
-      <a href="index.html#store">Shop</a>
-    </nav>
-  </aside>
-  <div class="drawer-overlay"></div>
 
   <main id="main">
     <section class="page-hero">
@@ -94,17 +103,17 @@
       </div>
     </section>
 
-    <!-- APA citations -->
+    <!-- APA -->
     <section>
       <div class="container">
         <h2 class="h-playfair">References (APA)</h2>
         <div class="card" style="padding:18px">
           <div class="prose">
-            <p>Louvre. (n.d.). <em>Mona Lisa</em>. Musée du Louvre. <a href="https://www.louvre.fr/en/explore/the-palace/mona-lisa" target="_blank" rel="noopener">https://www.louvre.fr/en/explore/the-palace/mona-lisa</a></p>
-            <p>Ellen MacArthur Foundation. (2017). <em>A new textiles economy: Redesigning fashion’s future</em>. <a href="https://ellenmacarthurfoundation.org/a-new-textiles-economy" target="_blank" rel="noopener">https://ellenmacarthurfoundation.org/a-new-textiles-economy</a></p>
-            <p>São Paulo Fashion Week. (n.d.). <em>SPFW</em>. <a href="https://spfw.com.br/" target="_blank" rel="noopener">https://spfw.com.br/</a></p>
-            <p>ABIT. (n.d.). <em>Brazilian Textile and Apparel Industry Association</em>. <a href="https://www.abit.org.br/" target="_blank" rel="noopener">https://www.abit.org.br/</a></p>
-            <p>Wikipedia contributors. (n.d.). <em>Sustainable fashion</em>. In <em>Wikipedia, The Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Sustainable_fashion" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Sustainable_fashion</a></p>
+            <p>Louvre. (n.d.). <em>Mona Lisa</em>. Musée du Louvre. https://www.louvre.fr/en/explore/the-palace/mona-lisa</p>
+            <p>Ellen MacArthur Foundation. (2017). <em>A new textiles economy: Redesigning fashion’s future</em>. https://ellenmacarthurfoundation.org/a-new-textiles-economy</p>
+            <p>São Paulo Fashion Week. (n.d.). <em>SPFW</em>. https://spfw.com.br/</p>
+            <p>ABIT. (n.d.). <em>Brazilian Textile and Apparel Industry Association</em>. https://www.abit.org.br/</p>
+            <p>Wikipedia contributors. (n.d.). <em>Sustainable fashion</em>. In <em>Wikipedia, The Free Encyclopedia</em>. https://en.wikipedia.org/wiki/Sustainable_fashion</p>
           </div>
         </div>
       </div>
@@ -112,11 +121,23 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+    <div class="container footer-rail">
       <div>© <span>BlankPage</span>. All rights reserved.</div>
       <div class="muted">Your style, your story.</div>
+      <div class="contact">
+        <ul class="contact-list">
+          <li class="contact-item">
+            <img src="assets/icons/phone.png" alt="" class="contact-ico" width="18" height="18">
+            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+          </li>
+          <li class="contact-item">
+            <img src="assets/icons/mail.png" alt="" class="contact-ico" width="18" height="18">
+            <a href="mailto:hello@blankpage.co">hello@blankpage.co</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </footer>
 </body>
 </html>
-
+s
