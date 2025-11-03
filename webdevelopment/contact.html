@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — BlankPage</title>
+  <title>Contact — BlankPage</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Favicon (SVG + fallbacks in /assets) -->
@@ -21,6 +23,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Fixed top navigation (no hamburger) -->
   <header class="site-header" role="banner">
     <div class="container nav-rail">
       <a class="brand" href="index.html#home" aria-label="BlankPage home">
@@ -44,12 +47,12 @@
               <li><a href="index.html#collections">Atelier Edition</a></li>
             </ul>
           </li>
-          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#features">Features</a></li>
           <li><a href="reflection.html">Reflection</a></li>
           <li><a href="index.html#store">Shop</a></li>
-	  <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
 
@@ -58,85 +61,75 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.98 10.39l4.41 4.41 1.41-1.41-4.41-4.41A6 6 0 0 0 10 4z"/></svg>
         </button>
         <button class="icon-btn" aria-label="Login">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1"/></svg>
         </button>
         <button class="icon-btn" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A1 1 0 0 0 9 18h9v-2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A1 1 0 0 0 9 18h9v-2"/></svg>
         </button>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- About hero with your image -->
-    <section class="hero hero--about" style="--hero:url('assets/about-hero.png');">
-      <div class="container hero-inner">
-        <span class="kicker">São Paulo • SP</span>
-        <h1>About BlankPage</h1>
-        <p>From a blank page to a masterpiece — our way of making clothes.</p>
-        <div class="actions">
-          <a class="btn primary" href="index.html#collections">Explore collections</a>
-          <a class="btn" href="reflection.html">Read reflections</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Brand Video (local MP4 you provided) -->
-    <section id="about-video">
+    <section class="page-hero">
       <div class="container">
-        <h2 class="h-playfair" style="margin-bottom:12px;">The Blank → Sketch → Masterpiece Journey</h2>
-        <p class="muted" style="margin:0 0 16px;">A short look at our process, people, and places.</p>
-        <figure class="video-wrap card">
-          <video class="video-el" controls preload="metadata" playsinline poster="assets/about-hero.png">
-            <source src="assets/about-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </figure>
+        <h1>Contact</h1>
+        <p>Questions, collabs, or press? Send us a note.</p>
       </div>
     </section>
 
-<!-- 1) Mark this page so CSS can target it -->
-<body data-page="about">
-  …
-  <main id="main">
-    …
-
-    <!-- 2) PRINT-ONLY block (shown only when printing) -->
-    <section id="about-print" class="print-only">
-      <h1>Alec Chang</h1>
-
-      <!-- Personal description -->
-      <p>
-        Data-driven creator behind BlankPage. I design clean, versatile pieces that
-        let people express themselves—rooted in São Paulo’s creative energy and a
-        sustainable mindset.
-      </p>
-
-      <!-- Education (UL or OL) -->
-      <h2>Education</h2>
-      <ul class="edu-list">
-        <li>University of Missouri–Columbia (B.S. Computer Science), Minor in Mathematics</li>
-        <li>Certificates: Cybersecurity; Information Systems & Technology</li>
-        <li>Focus: Data analytics, dashboards (Tableau/Redshift), and ops KPIs</li>
-      </ul>
-    </section>
-    …
-  </main>
-
-  <!-- Your existing footer stays as-is -->
-</body>
-
-
-    <!-- About copy -->
     <section>
       <div class="container">
-        <div class="card" style="padding:18px">
-          <div class="prose">
-            <p>BlankPage began with a simple belief: even iconic things start simple. Every outfit begins as an idea — refined over time into something personal and timeless.</p>
-            <p>We design <strong>versatile pieces</strong> that invite expression. Clean silhouettes, quality fabrics, and careful construction let our customers evolve a look across seasons.</p>
-            <p>Rooted in São Paulo’s creative energy, we build locally with a <strong>sustainable mindset</strong> — fewer, better pieces made to last.</p>
+        <form class="form card contact-form" action="#" method="post" novalidate>
+          <!-- Title dropdown -->
+          <div class="form-field">
+            <label for="title">Title</label>
+            <select id="title" name="title" required>
+              <option value="" selected disabled>Select your title</option>
+              <option>Mr.</option>
+              <option>Ms.</option>
+              <option>Mx.</option>
+              <option>Dr.</option>
+              <option>Prof.</option>
+              <option>Other</option>
+            </select>
           </div>
-        </div>
+
+          <!-- Full Name -->
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required>
+          </div>
+
+          <!-- Email Address -->
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+          </div>
+
+          <!-- Select Button (you choose content) — using Inquiry Type -->
+          <div class="form-field">
+            <label for="inquiry">Inquiry Type</label>
+            <select id="inquiry" name="inquiry" required>
+              <option value="" selected disabled>Choose a topic</option>
+              <option>General Question</option>
+              <option>Order Support</option>
+              <option>Collaboration</option>
+              <option>Press</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-field form-field--full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us a bit about how we can help…" required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Submit</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>

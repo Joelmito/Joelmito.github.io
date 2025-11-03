@@ -138,3 +138,191 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted)}
 .page-hero h1{font-family:'Playfair Display',serif;margin:0 0 8px}
 .page-hero p{margin:0;color:#444}
 
+
+/* ===== Screen/Print toggles ===== */
+.print-only { display: none; }   /* hidden on screen */
+.screen-only { display: block; } /* optional helper */
+
+/* ===== Print styles (ABOUT PAGE ONLY) ===== */
+@media print {
+
+  /* Page margin for the printed sheet */
+  @page { margin: 1in; }
+
+  /* Apply only to About page */
+  body[data-page="about"] {
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #fff !important;
+  }
+
+  /* Hide everything by default on About… */
+  body[data-page="about"] * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    color: #000 !important;              /* all text in black */
+  }
+
+  /* …except the print block and the footer (contact text only) */
+  body[data-page="about"] > header,
+  body[data-page="about"] .site-header,
+  body[data-page="about"] .hero,
+  body[data-page="about"] #about-video,
+  body[data-page="about"] section,
+  body[data-page="about"] footer {
+    display: none !important;
+  }
+
+  /* Show the PRINT block */
+  body[data-page="about"] #about-print {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Typography & spacing for print block */
+  body[data-page="about"] #about-print h1 {
+    font-size: 22pt;
+    margin: 0 0 10pt 0;
+  }
+  body[data-page="about"] #about-print h2 {
+    font-size: 14pt;
+    margin: 14pt 0 6pt 0;
+  }
+  body[data-page="about"] #about-print p {
+    font-size: 11pt;
+    line-height: 1.35;
+    margin: 0 0 10pt 0;
+  }
+  body[data-page="about"] #about-print .edu-list {
+    font-size: 11pt;
+    line-height: 1.35;
+    margin: 0;
+    padding-left: 18pt;
+  }
+  body[data-page="about"] #about-print .edu-list li { 
+    margin: 0 0 6pt 0;
+  }
+
+  /* Show the footer but strip graphics/logos; keep only contact text */
+  body[data-page="about"] footer {
+    display: block !important;
+    border: 0 !important;
+    padding: 12pt 0 0 0 !important;
+    margin-top: 12pt !important;
+  }
+  body[data-page="about"] footer .logo-icon,
+  body[data-page="about"] footer img,
+  body[data-page="about"] footer svg {
+    display: none !important; /* no logos or icon images */
+  }
+  body[data-page="about"] footer .contact-ico {
+    display: none !important; /* ensure icon class is hidden */
+  }
+  body[data-page="about"] footer .contact,
+  body[data-page="about"] footer .contact-list,
+  body[data-page="about"] footer .contact-item {
+    display: block !important;
+    gap: 0 !important;
+  }
+  body[data-page="about"] footer .contact-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  body[data-page="about"] footer .contact-item a {
+    font-size: 10pt !important;
+    text-decoration: none !important;
+  }
+
+  /* Keep it to one page: mild compaction */
+  body[data-page="about"] #about-print { 
+    max-height: 9.5in;       /* within 1in margins on US Letter */
+    overflow: hidden;
+  }
+  /* Avoid orphans/widows in lists/paragraphs */
+  p, li { orphans: 3; widows: 3; }
+}
+
+/* ===== Contact form ===== */
+.contact-form {
+  padding: 24px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+/* 2-column layout on larger screens */
+@media (min-width: 760px){
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-field--full { grid-column: 1 / -1; }
+}
+
+/* Fields */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  appearance: none;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  line-height: 1.4;
+}
+
+/* Placeholder style (subtle) */
+.form-field ::placeholder {
+  color: #6b7280;
+  opacity: .9;
+}
+
+/* Focus states */
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(17,17,17,.08);
+}
+
+/* Actions */
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.form-actions .btn.primary {
+  background: #111;
+  border-color: #111;
+}
+
+/* Make long textareas comfortable on mobile */
+@media (max-width: 480px){
+  .contact-form { padding: 18px; }
+  .form-field textarea { min-height: 160px; }
+}
